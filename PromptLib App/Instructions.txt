@@ -1,0 +1,18 @@
+We are building a simple MacOS app in SwiftUI that allows users to save a list of prompts
+- It looks like PromptLibMock.png
+- By default, when you type, it should search through the list of prompts on the left
+- Each prompt, when selected, on the right side, should show the contents of the prompt, and in a bottom section, have information about the prompt, including the date it was created, model you've tagged it for, and any other Tags you have added to it
+- If you press CMD + K, it should open a menu bar with the following options:
+    - Share Prompt
+    - Add to Library
+    - Add to Favorites
+    - Add to Tags
+    - Delete Prompt (in red and should have a confirmation prompt)
+    - Edit Prompt (in red)
+- The Prompts are saved locally in a JSON file in the user's documents folder
+- The app should be called PromptLib
+- The app should have a settings window that allows you to change the location of the prompts JSON file
+- The app should have a about window that shows information about the app
+- The app should have a help window that shows information about the app
+- The app should have a menu bar that allows you to open the settings, about, and help windows
+Complete this app in its entirety, including all the windows and functionality.
