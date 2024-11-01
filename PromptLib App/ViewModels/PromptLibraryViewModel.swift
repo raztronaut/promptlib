@@ -31,13 +31,13 @@ class PromptLibraryViewModel: ObservableObject {
                     title: "Test Prompt",
                     content: "This is a test prompt content that demonstrates how prompts look in the app. It can be quite long and will show how the text wraps.",
                     model: "GPT-4",
-                    tags: ["test", "sample"]
+                    tags: Set(["test", "sample"])
                 ),
                 Prompt(
                     title: "Writer Prompt",
                     content: "This is a writer prompt content that helps with writing tasks. It includes specific instructions and examples.",
                     model: "Claude",
-                    tags: ["writing", "email"]
+                    tags: Set(["writing", "email"])
                 )
             ]
             savePrompts()
@@ -87,4 +87,17 @@ class PromptLibraryViewModel: ObservableObject {
             print("Error saving prompts: \(error)")
         }
     }
-} 
+    
+    func toggleFavorite(_ prompt: Prompt) {
+        if let index = prompts.firstIndex(where: { $0.id == prompt.id }) {
+            var updatedPrompt = prompt
+            if updatedPrompt.tags.contains("Favorites") {
+                updatedPrompt.tags.remove("Favorites")
+            } else {
+                updatedPrompt.tags.insert("Favorites")
+            }
+            prompts[index] = updatedPrompt
+            savePrompts()
+        }
+    }
+}

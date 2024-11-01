@@ -33,8 +33,7 @@ struct ContentView: View {
                             prompts: viewModel.filteredPrompts,
                             selectedPrompt: $selectedPrompt
                         )
-                        .frame(minWidth: 250, maxWidth: 350, minHeight: 400)
-                        .frame(width: 300)
+                        .frame(minWidth: 250, maxWidth: .infinity)
                         .background(.ultraThinMaterial)
                     }
                     
@@ -69,6 +68,12 @@ struct ContentView: View {
                 PromptFormView(
                     presentationState: $presentationState,
                     viewModel: viewModel
+                )
+            case .editPrompt(let prompt):
+                PromptFormView(
+                    presentationState: $presentationState,
+                    viewModel: viewModel,
+                    editingPrompt: prompt
                 )
             }
         }

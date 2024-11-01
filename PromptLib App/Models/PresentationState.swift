@@ -11,6 +11,13 @@ import SwiftUI
 enum PresentationState: Identifiable {
     case commandMenu
     case newPrompt
+    case editPrompt(Prompt)
     
-    var id: Self { self }
+    var id: String {
+        switch self {
+        case .commandMenu: return "commandMenu"
+        case .newPrompt: return "newPrompt"
+        case .editPrompt(let prompt): return "editPrompt-\(prompt.id)"
+        }
+    }
 } 
